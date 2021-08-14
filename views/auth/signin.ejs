@@ -1,0 +1,43 @@
+<%-include("../partials/header")%>
+<style type="text/css">
+	.pp{
+	color:red;
+	}
+	.ig {
+  background: url(images/uni.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height:100vh;
+}
+html, body {margin: 0; height: 100%; overflow: hidden}
+</style>
+<div class="ig">
+<div class="container ">
+		
+		<h2 style="padding-top:150px;"class="text-center">Sign In </h2>
+		<div class="" style="width:30%;margin:20px auto;">
+			<form class="" method="POST" action="/signin">
+				<div class="form-group">
+					<input class="form-control" type="text" name="username" placeholder="username">
+				</div>
+				<div class="form-group">
+					<input class="form-control" type="text" name="password" placeholder="password">
+				</div>
+				<div class="form-group">
+					<button class="btn btn-primary btn-block">Sign In</button>
+				</div>
+				<%if(error){%>
+				<div class="form-group">
+					<p class="pp"><%=error%>!!</p>
+				</div>
+				<%}%>
+				
+			</form>
+			Didn't have an account? <a href="/signup">Sign up</a>
+		</div>
+</div>
+</div>
+
+<%-include("../partials/footer")%>

@@ -1,0 +1,110 @@
+<%-include("./partials/header")%>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind:wght@300&display=swap" rel="stylesheet">
+<style type="text/css">
+
+.ll{
+	color:#333131;
+	font-size:19px;
+	font-weight:600;
+	text-decoration:none;
+}
+.ll:hover{
+	color:#333131;
+	text-decoration:underline;
+}
+
+.hh{
+	margin-top:10px;
+	margin-bottom:10px;
+	font-size:18px;
+	font-weight:500;
+	font-family:'Hind';
+}
+.tt{
+	margin-left:450px;
+}
+#uu{
+	background-color:#0c024d;
+	min-height:100vh;
+	position:fixed;
+}
+.io{
+	margin-top:50px;
+	color:#ffffff;
+	font-size:20px;
+	font-weight:500;
+}
+.io:hover{
+	color:#ffffff;
+	text-decoration:underline;
+}
+.page{
+	margin-top:50px;
+}
+.head{
+	color:#ffffff;
+	font-size:24px;
+	font-weight:700;
+	text-decoration:none;
+}
+.avatar {
+  vertical-align: middle;
+  width: 110px;
+  height: 110px;
+  border-radius: 60%;
+}
+.pic{
+	margin-top:40px;
+	width:600px;
+}
+</style>
+
+<div class="row">
+	<div class="col-md-3" id="uu">
+		<div class="leftside text-center">
+			<br>
+			<br>
+			<a href="#"><img src="<%=arr.image%>" alt="Avatar" class="avatar"></a>
+			<br><br>
+			<%if(reid===arr.id){%>
+			<p class="head">Hi, <%=arr.username%></p>
+			<%}%>
+			<br>
+			<br><br>
+
+			<%if(reid===arr.id){%>
+				<p><a class="io" href="/user/<%=arr.id%>/add">Add</a></p>
+				<p><a class="io" href="/user/<%=arr.id%>/edit">Edit</a></p>
+				<p><a class="io" href="/user/<%=arr.id%>/delete">Delete</a></p>
+				<p><a class="io" href="/logout">logout</a></p>
+				<%}else{%>
+					<p class="io">Hello, Mr. Anonymous, You are currently viewing the spyder repo of User-<%=arr.username%></p>
+					<br><br>
+					<p><a class="io" href="/signin">Sign in</a></p>
+				<%}%>
+		</div>
+	</div>
+
+	<div class="container col-md-9 tt">
+		<div class="right-side">
+		<%if(arr.info.length==1&&arr.info[0].links==0){%>
+		 <h1 class="page">Please Add some Links :) </h1>
+		 <img class="pic" src="/images/22u48j.jpg">
+		<%}%>
+			<%for(let record of arr.info){%>
+				<div class="container page">
+					<%if(record.links.length){%>
+					<div class="date"><h1>Links for <%=record.date%></h1></div>
+					<p class="hh">Here are some links I found interesting this week</p>
+					<%for(let content of record.links){%>
+						<li><a class="ll" href="<%=content.link%>"><%=content.title%></a></li>
+					<%}%>
+					<%}%>
+				</div>
+			<%}%>
+		</div>
+	</div>
+</div>
+<%-include("./partials/footer")%>

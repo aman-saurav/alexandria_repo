@@ -1,0 +1,47 @@
+<%-include("../partials/header")%>
+<style type="text/css">
+	.pp{
+	color:red;
+	}
+	.ig {
+  background: url(images/uni.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height:100vh;
+	}
+html, body {margin: 0; height: 100%; overflow: hidden}
+</style>
+<div class="ig">
+<div class="container">
+	
+		<h2 style="padding-top:100px;"class="text-center">Sign Up Form</h2>
+		<div style="width:30%;margin:20px auto;">
+			<form class="" method="POST" action="/signup">
+				<div class="form-group">
+					<input class="form-control" type="text" name="username" placeholder="username">
+				</div>
+				<div class="form-group">
+					<input class="form-control" type="text" name="password" placeholder="password">
+				</div>
+				<div class="form-group">
+					<input class="form-control" type="text" name="image" placeholder="Image url for avatar">
+				</div> 
+				<div class="form-group">
+					<button class="btn btn-primary btn-block">Sign Up</button>
+				</div>
+				<%if(error){%>
+				<div class="form-group">
+					<p class="pp"><%=error%>!!</p>
+				</div>
+				<%}%>
+				
+			</form>
+			<p>**Width and height of image must be equal to be correctly viewed as a avatar,the image field can be left empty.<a href="/signin">Sign In</a></p>
+		</div>
+</div>
+</div>
+
+
+<%-include("../partials/footer")%>
