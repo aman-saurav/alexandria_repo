@@ -99,7 +99,7 @@
 					<div class="date"><h1>Links for <%=record.date%></h1></div>
 					<p class="hh">Here are some links I found interesting this week</p>
 					<%for(let content of record.links){%>
-						<li><a class="ll" href="<%=content.link%>"><%=content.title%></a></li>
+						<li><a class="ll" target = "_blank" href="<%=content.link%>"><%=content.title%></a></li>
 					<%}%>
 					<%}%>
 				</div>
